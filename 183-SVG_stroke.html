@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG Stroking</title>
+    <style>
+    .canvas{
+        width: 800px;
+        height: 600px;
+        border: 2px solid slategrey;
+    }
+    </style>
+</head>
+<body>
+<h1>SVG Stroke</h1>
+<p>1) stroke properties</p>
+<ul>
+<li>stroke color</li>
+<li>stroke width</li>
+<li>stroke linecap</li>
+<li>stroke dasharray</li>
+</ul>
+<b>transform - rotate: </b>
+<p>The rotate(&lta&gt [&ltx&gt &lty&gt]) transform function specifies a rotation by a degrees 
+    about a given point. If optional parameters x and y are not supplied, the 
+    rotation is about the origin of the current user coordinate system. If 
+    optional parameters x and y are supplied, the rotate is about the point 
+    (x, y).</p>
+<svg class='canvas'>
+
+<path stroke="red" d='M10 20 l220 0'></path>
+<path stroke="green" d='M10 40 l220 0'></path>
+<path stroke="blue" d='M10 60 l220 0'></path>
+
+<g stroke='yellow' transform='rotate(90, 420, 20)'>
+<path stroke="red" d='M310 20 l220 0'></path>
+<path stroke="green" d='M310 40 l220 0'></path>
+<path stroke="blue" d='M310 60 l220 0'></path>
+</g>
+
+<g stroke="orange">
+<path stroke-width="2" d='M10 100 l220 0' />
+<path stroke-width="4" d='M10 120 l220 0' />
+<path stroke-width="6" d='M10 140 l220 0' />
+</g>
+
+<g stroke='darkgrey' stroke-width='10'>
+<path d='M310 200 l220 0' />
+<path stroke-linecap='butt' d='M310 220 l220 0' />
+<path stroke-linecap='round' d='M310 240 l220 0' />
+<path stroke-linecap='square' d='M310 260 l220 0' />
+</g>
+
+<g stroke='crimson' stroke-width='3'>
+<path stroke-dasharray='5, 5' d='M550 20 l220 0' />
+<path stroke-dasharray='10, 10' d='M550 40 l220 0' />
+<path stroke-dasharray='20,10,10,5,5,5,10' d='M550 60 l220 0' />
+<path stroke-dasharray='20,10,5' d='M550 80 l220 0' />
+</g>
+</svg>
+
+
+</body>
+<script>
+
+
+</script>
+</html>
