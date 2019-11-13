@@ -61,6 +61,23 @@
 </g>
 </svg>
 
+<p>2) Filters - Blur</p>
+<svg class="canvas">
+<defs>
+    <filter id='f1' x='0' y='0'>
+        <feGaussianBlur in='SourceGraphic' stdDeviation='15' />
+    </filter>
+</defs>
+<g>
+<text x='20' y='20' fill='red' >No Filter</text>
+<rect x='20' y='50' width='90' height='50' fill='red'></rect>
+</g>
+<g>
+<text x='120' y='20' fill='blue'>With Filter</text>
+<rect x='120' y='50' width='90' height='50' fill='blue'
+filter='url(#f1)'></rect>
+</g>
+</svg>
 
 </body>
 <script>
