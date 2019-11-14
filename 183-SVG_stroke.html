@@ -61,7 +61,7 @@
 </g>
 </svg>
 
-<p>2) Filters - Blur</p>
+<p>2) Filters - Blur, Offset (drop shadow)</p>
 <svg class="canvas">
 <defs>
     <filter id='f1' x='0' y='0'>
@@ -76,6 +76,64 @@
 <text x='120' y='20' fill='blue'>With Filter</text>
 <rect x='120' y='50' width='90' height='50' fill='blue'
 filter='url(#f1)'></rect>
+</g>
+
+<defs>
+    <filter id='f2' x='0' y='0' width='200%' height='200%'>
+        <feOffset result='offOut' in='SourceGraphic' dx='20' dy='20' />
+        <feBlend in='SourceGraphic' in2="offOut" mode='normal' />
+    </filter>
+</defs>
+
+<g>
+<text x='300' y='20' fill='gold'>Offset (drop shadow) w/opacity = 1</text>
+<rect x='300' y='50' width='90' height='60' stroke='gold' stroke-width='3'
+fill='lime' fill-opacity='1' filter='url(#f2)' />
+
+<text x='480' y='40' fill='aqua'>Offset (drop shadow) w/opacity = 0.3</text>
+<rect x='450' y='50' width='90' height='60' stroke='aqua' stroke-width='3'
+fill='violet' fill-opacity='0.3' filter='url(#f2)' />
+</g>
+
+<defs>
+    <filter id='f3' x='0' y='0' width='200%' height='200%'>
+        <feOffset result='offOut' in='SourceGraphic' dx='20' dy='20' />
+        <feGaussianBlur result='blurOut' in='offOut' stdDeviation='10' />
+        <feBlend in='SourceGraphic' in2='blurOut' mode='normal' />
+    </filter>
+</defs>
+<g>
+<text x='20' y='200' fill='dodgerblue'>Blured Offset, offset in=SourceGraphic</text>
+<rect x='20' y='230' width='90' height='60' stroke='dodgerblue' 
+stroke-width='3' fill='lightgreen' filter='url(#f3)' />
+</g>
+
+<defs>
+    <filter id='f4' x='0' y='0' width='200%' height='200%'>
+        <feOffset result='offOut' in='SourceAlpha' dx='20' dy='20' />
+        <feGaussianBlur result='blurOut' in='offOut' stdDeviation='10' />
+        <feBlend in='SourceGraphic' in2='blurOut' mode='normal' />
+    </filter>
+</defs>
+<g>
+<text x='220' y='240' fill='darkgrey'>Blured Offset, offset in=SourceAlpha</text>
+<rect x='220' y='250' width='90' height='60' stroke='dodgerblue' 
+stroke-width='3' fill='lightgreen' filter='url(#f4)' />
+</g>
+
+<defs>
+    <filter id='f5' x='0' y='0' width='200%' height='200%'>
+        <feOffset result='offOut' in='SourceGraphic' dx='20' dy='20' />
+        <feColorMatrix result='matrixOut' in='offOut' type='matrix'
+        values='0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0' />
+        <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='10' />
+        <feBlend in='SourceGraphic' in2='blurOut' mode='normal' />
+    </filter>
+</defs>
+<g>
+<text x='500' y= '240' fill='gold'>Blured Shaow with color</text>
+<rect x='500' y='260' width='90' height='60' stroke='hotpink' stroke-width='3' 
+fill='gold' filter='url(#f5)' />
 </g>
 </svg>
 
