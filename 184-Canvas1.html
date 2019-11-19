@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Canvas 1</title>
+    <style>
+    .canvas{
+        border: 2px solid lightgrey;
+    }
+    </style>
+</head>
+<body>
+<h1>HTML Canvas</h1>
+<p>1) Define the border of canvas</p>
+<canvas class='canvas' id='canvas1' width='800' height='600'>
+
+</canvas>
+</body>
+<script>
+// get the canvas
+var canvas1 = document.getElementById('canvas1');
+var ctx = canvas1.getContext('2d');
+
+// draw a filled box
+ctx.fillStyle='#f00';
+ctx.fillRect(20, 10, 75, 50);
+
+// draw a line
+ctx.moveTo(100, 20);
+ctx.lineTo(200, 50);
+ctx.stroke();
+
+// draw a circle
+ctx.beginPath();
+ctx.arc(250, 30, 25, 0, 2 * Math.PI);
+ctx.stroke();
+
+// create a linear gradient
+var grd1 = ctx.createLinearGradient(0,0,200,0);
+grd1.addColorStop(0,"red");
+grd1.addColorStop(1,"white");
+ctx.fillStyle = grd1;
+ctx.fillRect(10, 80, 205, 50);
+
+// create a radial gradient
+var grad2 = ctx.createRadialGradient(105,210,5,105,210,200);
+grad2.addColorStop(0,'red');
+grad2.addColorStop(1, 'white');
+ctx.fillStyle=grad2;
+ctx.fillRect(10, 160, 210, 260);
+
+</script>
+</html>
