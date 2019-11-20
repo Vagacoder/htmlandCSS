@@ -14,12 +14,21 @@
 <body>
 <h1>HTML Canvas</h1>
 <p>1) Define the border of canvas</p>
+<p>2) Draw a line, circle</p>
+<p>3) Gradient </p>
 <canvas class='canvas' id='canvas1' width='800' height='600'>
-
 </canvas>
+
+<p>4) Text</p>
+<canvas class='canvas' id='canvas2' width='800' height='600'>
+</canvas>
+
+<p>Image to be draw on canvas</p>
+<img id="scream" width="220" height="277"
+src="https://www.w3schools.com/graphics/pic_the_scream.jpg" alt="The Scream">
 </body>
 <script>
-// get the canvas
+// get the canvas #1
 var canvas1 = document.getElementById('canvas1');
 var ctx = canvas1.getContext('2d');
 
@@ -51,5 +60,27 @@ grad2.addColorStop(1, 'white');
 ctx.fillStyle=grad2;
 ctx.fillRect(10, 160, 210, 260);
 
+// get canvas #2
+var canvas2 = document.getElementById('canvas2');
+var context = canvas2.getContext('2d');
+
+// write a text
+context.font = '30px Arial';
+context.fillText('Filled Text', 50, 50);
+
+// write a text w/o fill
+context.strokeText('No fill, only stroke', 300, 50);
+
+// fill with color and set location to center
+context.font= '30px Comic Sans MS';
+context.fillStyle='crimson';
+context.textAlign='center';
+context.fillText('Red Comic Sans Ms at Center', canvas2.width/2, canvas2.height/2);
+
+// draw a image
+window.onload = ()=> {
+var img = document.getElementById('scream');
+context.drawImage(img, 200,400);
+}
 </script>
 </html>
