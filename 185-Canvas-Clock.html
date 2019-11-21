@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Clock</title>
+    <style>
+    .canvas{
+        border: 1px solid royalblue;
+        background: #333;
+    }
+    </style>
+</head>
+<body>
+<h1></h1>
+<p></p>
+<canvas id='canvas1' class='canvas' width='400' height='400'>
+
+</canvas>
+</body>
+<script>
+
+// Step 1: Create a canvas (square) with background
+// and set (0,0) to the center of canvas
+
+var canvas1 = document.getElementById('canvas1');
+var ctx = canvas1.getContext('2d');
+var radius = canvas1.height/2;
+
+// Remap the (0,0) position (of the drawing object)
+// to the center of the canvas
+ctx.translate(radius, radius);
+radius = radius * 0.9;
+
+
+// Step 2: Create a Clock Face
+const drawFace= (ctx, radius) => {
+    var grad;
+
+    // draw a white circle
+    ctx.beginPath();
+    ctx.arc(0,0,radius, 0, 2* Math.PI);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+
+    // draw a gradient border
+    grad = ctx.createRadialGradient(0,0, radius * 0.95, 0,0, radius * 1.05);
+    grad.addColorStop(0, '#666');
+    grad.addColorStop(0.5, '#fff');
+    grad.addColorStop(1, '#999');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = radius*0.2;
+    ctx.stroke();
+
+    // draw an axis at the center
+    ctx.beginPath();
+    ctx.arc(0,0,radius * 0.1, 0, 2* Math.PI);
+    ctx.fillStyle= '#333';
+    ctx.fill();
+}
+
+// Final draw clock
+const drawClock = (radius)=> {
+    drawFace(ctx, radius);
+}
+
+drawClock(radius);
+
+</script>
+</html>
