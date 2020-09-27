@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test input java script from browser console</title>
+    <style>
+    #hidden{
+        visibility: hidden;
+    }
+
+    </style>
+
+</head>
+<body>
+<h1>Test Input Java Script From Browser Console</h1>
+<h2>Step 1: Click button below several times to see effect</h2>
+<h2>Step 2: In browser console, enter code:</h2>
+<pre>
+    function ClickButton(){
+        console.log('Start working');
+        document.querySelector('#btn1').click()
+    };
+
+    let timer = setInterval(ClickButton, 2000);
+</pre>
+<h2>Step 3 (optional):To stop timer, enter code:</h2>
+<pre>
+    clearInterval(timer)
+</pre>
+<br/>
+<hr/>
+<button id='btn1'>Click Me to Toggle Text Below</button>
+<h4 id='hidden'>This is hidden text</h4>
+<hr/>
+<div>
+ This is a useful trick to keep Google Colab window active, to avoid deactive session.
+</div>
+</body>
+<script>
+document.getElementById('btn1').addEventListener('click', ()=> {
+    // alert('clicked!');
+    let hiddenText = document.getElementById('hidden');
+    let visibilityOfText = hiddenText.style.visibility;
+    if (visibilityOfText === 'hidden'){
+        hiddenText.style.visibility = 'visible';
+    }else{
+        hiddenText.style.visibility = 'hidden';
+    }
+});
+</script>
+</html>
